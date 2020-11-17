@@ -4,6 +4,8 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
+#CoinMarketCap API Connection
+
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 parameters = {
   'symbol': 'BTC,ETH,XRP,LTC,BNB',
@@ -23,6 +25,7 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
+#Welcome screen that shows what cryptocurrency is currently supported by the application
 
 def main():
     print("***********************")
@@ -31,13 +34,20 @@ def main():
     print("Here are some cryptocurrency options: BTC ETH XRP LTC BNB")
     print("***********************")
     print()
+
     start_con = input("Would you like to perform a conversion? Y/N").upper()
 
+    if start_con != "Y" or "N":
+        print("Please type Y or N to continue.")
+
+#Main loop, user may exit the program by typing "N" to exit at the end
 
     while start_con == "Y":
         option = input("Please type (1) USD to Crypto or (2) Crypto to USD")
         coin_second = input("What currency you would like to convert to. BTC ETH XRP LTC BNB ").upper()
         amount = float(input("Please choose the amount of currency to convert. "))
+
+#Conversation code from USD to Crypto
 
         if option == '1':
             def convert_1():
@@ -77,6 +87,9 @@ def main():
             print()
             start_con = input("Would you like to perform another conversion? Y/N").upper()
         else:
+
+#Conversation code from Crypto to USD
+
             def convert_2():
                 if  coin_second == 'BTC':
                     coin = data['data']['BTC']['symbol']
