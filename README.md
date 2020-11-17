@@ -1,6 +1,6 @@
 # CryptoSwitch
 
-CryptoSwitch is a simple app for those interested in cryptocurrency values in relation to the US Dollar. Currently, there are a total of 5 popular cryptocurrency choices to choose from such as Bitcoin, Ethereum, Litecoin, Ripple, and Binance. The crypto value information is pulled from the CoinMarketCap API. I used the free version which somewhat limited some of the information I could pull and how instant the information would be. User can perform as many conversions as they like and when prompted, may quit the app.
+CryptoSwitch is a simple app for those interested in cryptocurrency values in relation to the US Dollar. Currently, there are a total of 5 popular cryptocurrency choices to choose from such as Bitcoin, Ethereum, Litecoin, Ripple, and Binance. Users can perform as many conversions as they like and when prompted, may quit the app. The crypto value information is pulled from the CoinMarketCap API. I used the free version of the API which somewhat limits some of the information that can be pulled and how instant the information will be. 
 
 
 
