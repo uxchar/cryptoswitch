@@ -35,17 +35,35 @@ def main():
     print("***********************")
     print()
 
-    start_con = input("Would you like to perform a conversion? Y/N").upper()
+    crypto_support = set(['BTC', 'ETH', 'XRP', 'LTC', 'BNB'])
 
-    if start_con != "Y" or "N":
-        print("Please type Y or N to continue.")
+    def yes_no(answer):
+        yes = set(['yes','y'])
+        no = set(['no','n'])
+
+        while True:
+            choice = input(answer).lower()
+            if choice in yes:
+               return True
+            elif choice in no:
+               return False
+            else:
+               print("Please respond with yes or no to continue")
+
+    start_con = yes_no("Would you like to perform a conversion? Y/N")
 
 #Main loop, user may exit the program by typing "N" to exit at the end
+    while start_con is True:
+        option = input("Please type (1) USD to Crypto or (2) Crypto to USD  ")
+        coin_second = input("What currency you would like to convert to. BTC ETH XRP LTC BNB  ").upper()
 
-    while start_con == "Y":
-        option = input("Please type (1) USD to Crypto or (2) Crypto to USD")
-        coin_second = input("What currency you would like to convert to. BTC ETH XRP LTC BNB ").upper()
-        amount = float(input("Please choose the amount of currency to convert. "))
+        if coin_second in crypto_support:
+            pass
+        else:
+            coin_second = input("Please type in a supported cryptocurrency.  ").upper()
+
+
+        amount = float(input("Please choose the amount of currency to convert.  "))
 
 #Conversation code from USD to Crypto
 
@@ -85,7 +103,10 @@ def main():
                     print("This cryptocurrency doesn't exist or is not yet supported by this app.")
             convert_1()
             print()
-            start_con = input("Would you like to perform another conversion? Y/N").upper()
+            start_con = yes_no("Would you like to perform another conversion? Y/N")
+
+
+
         else:
 
 #Conversation code from Crypto to USD
@@ -125,6 +146,6 @@ def main():
                     print("This cryptocurrency doesn't exist or is not yet supported by this app.")
             convert_2()
             print()
-            start_con = input("Would you like to perform another conversion? Y/N").upper()
+            start_code = yes_no("Would you like to perform another conversion? Y/N")
 
 main()
