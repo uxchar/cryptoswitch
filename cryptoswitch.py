@@ -25,9 +25,11 @@ except (ConnectionError, Timeout, TooManyRedirects) as e:
 
 
 def main():
+    print("***********************")
     print("Welcome!")
     print("This app uses USD for conversions")
     print("Here are some cryptocurrency options: BTC ETH XRP LTC BNB")
+    print("***********************")
     print()
     start_con = input("Would you like to perform a conversion? Y/N").upper()
 
