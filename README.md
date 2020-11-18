@@ -4,9 +4,11 @@ CryptoSwitch is a simple app for those interested in cryptocurrency values in re
 
 
 
-## Requirements
+## Running the Project
 
+1. Clone the repository to your machine using `git clone https://github.com/uxchar/cryptoswitch.git`
 
+2. Run cryptoswith.py in your python terminal
 
 ## Features
 
