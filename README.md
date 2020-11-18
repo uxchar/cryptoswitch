@@ -8,7 +8,6 @@ CryptoSwitch is a simple app for those interested in cryptocurrency values in re
 
 1. Install Python 3.8
 2. Clone the repository to your machine using `git clone https://github.com/uxchar/cryptoswitch.git`
-3. 
 4. Run cryptoswith.py in your interpreter
 
 ## Features
