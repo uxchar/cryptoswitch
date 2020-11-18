@@ -37,6 +37,8 @@ def main():
 
     crypto_support = set(['BTC', 'ETH', 'XRP', 'LTC', 'BNB'])
 
+#Function to check for start or ending app
+
     def yes_no(answer):
         yes = set(['yes','y'])
         no = set(['no','n'])
@@ -52,21 +54,38 @@ def main():
 
     start_con = yes_no("Would you like to perform a conversion? Y/N  ")
 
-#Main loop, user may exit the program by typing "N" to exit at the end
-    while start_con is True:
-        option = input("Please type '1' for USD to Crypto or '2' for Crypto to USD  ")
 
+#Check for input error on choice selection
+
+    while start_con is True:
         while True:
             try:
-                coin_second = input("What currency you would like to convert to. BTC ETH XRP LTC BNB  ").upper()
-                if coin_second in crypto_support:
+                option = input("Please type '1' for USD to Crypto or '2' for Crypto to USD  ")
+                if option == "1" or option == "2":
                     break
-                print("Please type in a supported cryptocurrency.  ")
             except Exception as e:
                 print(e)
 
+#Check for input error on coin selection
 
-        amount = float(input("Please choose the amount of currency to convert.  "))
+        while True:
+            try:
+                coin_second = input("Please type a supported currency. BTC ETH XRP LTC BNB  ").upper()
+                if coin_second in crypto_support:
+                    break
+            except Exception as e:
+                print(e)
+
+#Check for input error to see if input is an integer
+               
+        while True: 
+            amount = input("Please choose the amount of currency to convert.  ")
+            try:
+                amount = int(amount)
+                break
+            except ValueError:
+                print("Please type an integer value")
+            
 
 #Conversation code from USD to Crypto
 
@@ -81,6 +100,8 @@ def main():
             conversion = rate * amount
             print("1", coin, "=", 'USD', rate)
             print(amount, coin, "=", 'USD', conversion)
+
+#Data pulled from API
 
         if option == '1':
                 if  coin_second == 'BTC':
