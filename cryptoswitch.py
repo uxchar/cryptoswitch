@@ -50,102 +50,89 @@ def main():
             else:
                print("Please respond with yes or no to continue")
 
-    start_con = yes_no("Would you like to perform a conversion? Y/N")
+    start_con = yes_no("Would you like to perform a conversion? Y/N  ")
 
 #Main loop, user may exit the program by typing "N" to exit at the end
     while start_con is True:
-        option = input("Please type (1) USD to Crypto or (2) Crypto to USD  ")
-        coin_second = input("What currency you would like to convert to. BTC ETH XRP LTC BNB  ").upper()
+        option = input("Please type '1' for USD to Crypto or '2' for Crypto to USD  ")
 
-        if coin_second in crypto_support:
-            pass
-        else:
-            coin_second = input("Please type in a supported cryptocurrency.  ").upper()
+        while True:
+            try:
+                coin_second = input("What currency you would like to convert to. BTC ETH XRP LTC BNB  ").upper()
+                if coin_second in crypto_support:
+                    break
+                print("Please type in a supported cryptocurrency.  ")
+            except Exception as e:
+                print(e)
 
 
         amount = float(input("Please choose the amount of currency to convert.  "))
 
 #Conversation code from USD to Crypto
 
-        if option == '1':
-            def convert_1():
-                if  coin_second == 'BTC':
-                    coin = data['data']['BTC']['symbol']
-                    rate = data['data']['BTC']['quote']['USD']['price']
-                    conversion = 1 / rate
-                    print("1", 'USD', "=", coin, conversion)
-                    print(amount, 'USD', "=", coin, conversion * amount)
-                elif coin_second == 'ETH':
-                    coin = data['data']['ETH']['symbol']
-                    rate = data['data']['ETH']['quote']['USD']['price']
-                    conversion = 1 / rate
-                    print("1", 'USD', "=", coin, rate)
-                    print(amount, 'USD', "=", coin_second, conversion * amount)
-                elif coin_second == 'XRP':
-                    coin = data['data']['XRP']['symbol']
-                    rate = data['data']['XRP']['quote']['USD']['price']
-                    conversion = 1 / rate * amount
-                    print("1", 'USD', "=", coin, conversion)
-                    print(amount, 'USD', "=", coin, conversion * amount)
-                elif coin_second == 'LTC':
-                    coin = data['data']['LTC']['symbol']
-                    rate = data['data']['LTC']['quote']['USD']['price']
-                    conversion = 1 / rate
-                    print("1", 'USD', "=", coin, conversion)
-                    print(amount, 'USD', "=", coin, conversion * amount)
-                elif coin_second == 'BNB':
-                    coin = data['data']['BNB']['symbol']
-                    rate = data['data']['BNB']['quote']['USD']['price']
-                    conversion = 1 / rate
-                    print("1", 'USD', "=", coin, conversion)
-                    print(amount, 'USD', "=", coin, conversion * amount)
-                else:
-                    print("This cryptocurrency doesn't exist or is not yet supported by this app.")
-            convert_1()
-            print()
-            start_con = yes_no("Would you like to perform another conversion? Y/N")
-
-
-
-        else:
+        def convert_1():
+            conversion = 1 / rate
+            print("1", 'USD', "=", coin, conversion)
+            print(amount, 'USD', "=", coin, conversion * amount)
 
 #Conversation code from Crypto to USD
 
-            def convert_2():
+        def convert_2():
+            conversion = rate * amount
+            print("1", coin, "=", 'USD', rate)
+            print(amount, coin, "=", 'USD', conversion)
+
+        if option == '1':
                 if  coin_second == 'BTC':
                     coin = data['data']['BTC']['symbol']
                     rate = data['data']['BTC']['quote']['USD']['price']
-                    conversion = rate * amount
-                    print("1", coin, "=", 'USD', rate)
-                    print(amount, coin, "=", 'USD', conversion)
+                    convert_1()
                 elif coin_second == 'ETH':
                     coin = data['data']['ETH']['symbol']
                     rate = data['data']['ETH']['quote']['USD']['price']
-                    conversion = rate * amount
-                    print("1", coin, "=", 'USD', rate)
-                    print(amount, coin, "=", 'USD', conversion)
+                    convert_1()
                 elif coin_second == 'XRP':
                     coin = data['data']['XRP']['symbol']
                     rate = data['data']['XRP']['quote']['USD']['price']
-                    conversion = rate * amount
-                    print("1", coin, "=", 'USD', rate)
-                    print(amount, coin, "=", 'USD', conversion)
+                    convert_1()
                 elif coin_second == 'LTC':
                     coin = data['data']['LTC']['symbol']
                     rate = data['data']['LTC']['quote']['USD']['price']
-                    conversion = rate * amount
-                    print("1", coin, "=", 'USD', rate)
-                    print(amount, coin, "=", 'USD', conversion)
+                    convert_1()
                 elif coin_second == 'BNB':
                     coin = data['data']['BNB']['symbol']
                     rate = data['data']['BNB']['quote']['USD']['price']
-                    conversion = rate * amount
-                    print("1", coin, "=", 'USD', rate)
-                    print(amount, coin, "=", 'USD', conversion)
+                    convert_1()
                 else:
                     print("This cryptocurrency doesn't exist or is not yet supported by this app.")
-            convert_2()
-            print()
-            start_code = yes_no("Would you like to perform another conversion? Y/N")
+                print()
+                start_con = yes_no("Would you like to perform another conversion? Y/N")
+
+        else:
+                if  coin_second == 'BTC':
+                    coin = data['data']['BTC']['symbol']
+                    rate = data['data']['BTC']['quote']['USD']['price']
+                    convert_2()
+
+                elif coin_second == 'ETH':
+                    coin = data['data']['ETH']['symbol']
+                    rate = data['data']['ETH']['quote']['USD']['price']
+                    convert_2()
+                elif coin_second == 'XRP':
+                    coin = data['data']['XRP']['symbol']
+                    rate = data['data']['XRP']['quote']['USD']['price']
+                    convert_2()
+                elif coin_second == 'LTC':
+                    coin = data['data']['LTC']['symbol']
+                    rate = data['data']['LTC']['quote']['USD']['price']
+                    convert_2()
+                elif coin_second == 'BNB':
+                    coin = data['data']['BNB']['symbol']
+                    rate = data['data']['BNB']['quote']['USD']['price']
+                    convert_2()
+                else:
+                    print("This cryptocurrency doesn't exist or is not yet supported by this app.")
+                print()
+                start_code = yes_no("Would you like to perform another conversion? Y/N")
 
 main()
