@@ -127,7 +127,7 @@ def main():
                 else:
                     print("This cryptocurrency doesn't exist or is not yet supported by this app.")
                 print()
-                start_con = yes_no("Would you like to perform another conversion? Y/N")
+                start_con = yes_no("Would you like to perform another conversion? Y/N  ")
 
         else:
                 if  coin_second == 'BTC':
@@ -154,6 +154,6 @@ def main():
                 else:
                     print("This cryptocurrency doesn't exist or is not yet supported by this app.")
                 print()
-                start_con = yes_no("Would you like to perform another conversion? Y/N")
+                start_con = yes_no("Would you like to perform another conversion? Y/N  ")
 
 main()
