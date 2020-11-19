@@ -117,8 +117,8 @@ def main():
 
         def convert_2():
             conversion = rate * amount
-            print("1", coin, "=", 'USD', "$", "{:.6f}".format(float(rate)))
-            print(amount, coin, "=", 'USD', "$", "{:.6f}".format(float(conversion)))
+            print("1", coin, "=", 'USD', "$", "{:.2f}".format(float(rate)))
+            print(amount, coin, "=", 'USD', "$", "{:.2f}".format(float(conversion)))
 
 #Data pulled from API
 
