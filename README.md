@@ -12,7 +12,7 @@ CryptoSwitch is a simple app for those interested in cryptocurrency values in re
 
 ## Features
 
-Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program (**App can continue to do numerous conversions until user types "no" at the app start or at the end of the last conversion**)
+Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program (**App can continue to do numerous conversions until user types "no" at the app start or at the end of the last conversion**. **The user can also exit the app at anytime by typing 'quit' or 'q'**)
 
 Connect to an external/3rd party API and read data into your app (**App is connected to the CoinMarketCap API for up-to-date data on cryptocurrency values and the data is used for conversions**)
 
