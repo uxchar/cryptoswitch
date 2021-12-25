@@ -6,7 +6,7 @@ CryptoSwitch is a simple app for those interested in cryptocurrency values in re
 
 ## Running the Project
 
-1. Install Python 3.8
+1. Install the latest version of Python 
 2. Clone the repository to your machine using `git clone https://github.com/uxchar/cryptoswitch.git`
 4. Run cryptoswitch.py in your interpreter
 
